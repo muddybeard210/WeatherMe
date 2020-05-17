@@ -1,0 +1,31 @@
+﻿@page "/counter"
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<input @bind="ExampleDataBindingOne" />
+
+<input type="text" value="@ExampleDataBindingTwo" @onchange="HandleChange"/>
+
+@code {
+
+    private string ExampleDataBindingOne { get; set; }
+    
+    private string ExampleDataBindingTwo { get; set; }
+
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    public void HandleChange(ChangeEventArgs e)
+    {
+        ExampleDataBindingTwo = e.Value.ToString();
+    }
+
+}
